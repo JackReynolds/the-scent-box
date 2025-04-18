@@ -272,9 +272,9 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-muted-foreground">
-                  "I love being able to try different aftershaves without
+                  &quot;I love being able to try different aftershaves without
                   committing to buying a full bottle. The selection is fantastic
-                  and the process is so simple."
+                  and the process is so simple.&quot;
                 </p>
               </div>
               <div className="flex flex-col p-6 bg-background rounded-lg shadow-sm h-full">
@@ -288,9 +288,9 @@ export default function Home() {
                   </div>
                 </div>
                 <p className="text-muted-foreground">
-                  "Our customers appreciate the additional service, and the
+                  &quot;Our customers appreciate the additional service, and the
                   advertising display has been a great revenue stream for
-                  partnerships with fragrance brands."
+                  partnerships with fragrance brands.&quot;
                 </p>
               </div>
             </div>
@@ -404,7 +404,7 @@ export default function Home() {
                   </h2>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
                     Interested in having a Scent Box in your establishment? Fill
-                    out the form and we'll get back to you.
+                    out the form and we&apos;ll get back to you.
                   </p>
                 </div>
                 <div className="space-y-2">
