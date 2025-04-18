@@ -161,17 +161,11 @@ export default function Home() {
               >
                 Highlights
               </button>
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="text-sm font-medium hover:text-primary py-2"
-              >
-                Contact
-              </button>
               <Button
                 onClick={() => scrollToSection("contact")}
                 className="w-full"
               >
-                Get Started
+                Contact Us
               </Button>
             </nav>
           </div>
@@ -446,7 +440,7 @@ export default function Home() {
         </section>
 
         {/* FAQ Section */}
-        <section id="faq" className="bg-muted my-10 py-20">
+        <section id="faq" className="bg-muted my-10 py-20 px-5 md:px-0">
           <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
               FAQ
