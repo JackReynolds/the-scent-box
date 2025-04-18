@@ -213,7 +213,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex justify-center lg:justify-end">
-                <div className="relative w-full h-[600px] lg:h-[700px] lg:w-[700px] overflow-hidden rounded-xl">
+                <div className="relative w-full lg:h-[700px] lg:w-[700px] overflow-hidden rounded-xl">
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-xl" />
                   {/* <div className="flex justify-center items-center h-full text-center p-6">
                     <p className="text-lg font-medium">
