@@ -35,6 +35,13 @@ export default function Home() {
   const [api, setApi] = useState(null);
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    company: "",
+    message: "",
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Add smooth scrolling
   useEffect(() => {
@@ -76,6 +83,47 @@ export default function Home() {
     if (element) {
       element.scrollIntoView();
       setMobileMenuOpen(false);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    const { id, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [id]: value,
+    }));
+  };
+
+  const handleSubmit = async () => {
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success("Message sent successfully!");
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          message: "",
+        });
+      } else {
+        toast.error(data.error || "Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      toast.error("Something went wrong. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -517,7 +565,13 @@ export default function Home() {
                     <label htmlFor="name" className="text-sm font-medium">
                       Name
                     </label>
-                    <Input id="name" placeholder="Your name" />
+                    <Input
+                      id="name"
+                      placeholder="Your name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                    />
                   </div>
                   <div className="grid gap-2">
                     <label htmlFor="email" className="text-sm font-medium">
@@ -527,13 +581,21 @@ export default function Home() {
                       id="email"
                       type="email"
                       placeholder="you@example.com"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
                     />
                   </div>
                   <div className="grid gap-2">
                     <label htmlFor="company" className="text-sm font-medium">
                       Company (Optional)
                     </label>
-                    <Input id="company" placeholder="Your company" />
+                    <Input
+                      id="company"
+                      placeholder="Your company"
+                      value={formData.company}
+                      onChange={handleInputChange}
+                    />
                   </div>
                   <div className="grid gap-2">
                     <label htmlFor="message" className="text-sm font-medium">
@@ -542,16 +604,18 @@ export default function Home() {
                     <Textarea
                       id="message"
                       placeholder="Tell us about your needs"
+                      value={formData.message}
+                      onChange={handleInputChange}
+                      required
                     />
                   </div>
                 </div>
                 <Button
                   className="w-full hover:cursor-pointer hover:bg-primary/80"
-                  onClick={() => {
-                    toast.success("Message sent successfully");
-                  }}
+                  onClick={handleSubmit}
+                  disabled={isSubmitting}
                 >
-                  Send Message
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </div>
             </div>
