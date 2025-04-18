@@ -10,6 +10,13 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import {
   Droplet,
   CreditCard,
   Sprout,
@@ -25,6 +32,9 @@ import { toast } from "sonner";
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [api, setApi] = useState(null);
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
 
   // Add smooth scrolling
   useEffect(() => {
@@ -33,6 +43,33 @@ export default function Home() {
       document.documentElement.style.scrollBehavior = "auto";
     };
   }, []);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    // Auto-advance carousel every 3 seconds
+    const autoplayInterval = setInterval(() => {
+      api.scrollNext();
+    }, 3000);
+
+    // Clean up interval on unmount
+    return () => clearInterval(autoplayInterval);
+  }, [api]);
 
   const scrollToSection = (id) => {
     const element = document.getElementById(id);
@@ -48,7 +85,14 @@ export default function Home() {
       <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2 font-bold text-xl">
-            <Droplet className="h-6 w-6 text-primary" />
+            {/* <Droplet className="h-6 w-6 text-primary" /> */}
+            <Image
+              src="/images/scentbox-logo.png"
+              alt="The Scent Box"
+              className="ml-3 md:ml-10"
+              width={32}
+              height={32}
+            />
             <span>The Scent Box</span>
           </div>
 
@@ -169,13 +213,64 @@ export default function Home() {
                 </div>
               </div>
               <div className="flex justify-center lg:justify-end">
-                <div className="relative h-[400px] w-full lg:w-[450px] overflow-hidden rounded-xl">
+                <div className="relative w-full h-[600px] lg:h-[700px] lg:w-[700px] overflow-hidden rounded-xl">
                   <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-secondary/20 rounded-xl" />
-                  <div className="flex justify-center items-center h-full text-center p-6">
+                  {/* <div className="flex justify-center items-center h-full text-center p-6">
                     <p className="text-lg font-medium">
                       Product Image Placeholder
                     </p>
-                  </div>
+                  </div> */}
+                  {/* <Image
+                    src="/images/scentbox-full-wide.jpg"
+                    alt="The Scent Box"
+                    className="h-full w-full object-cover"
+                    width={450}
+                    height={400}
+                  /> */}
+                  <Carousel
+                    setApi={setApi}
+                    className="w-full h-full"
+                    opts={{
+                      align: "start",
+                      loop: true,
+                    }}
+                  >
+                    <CarouselContent>
+                      <CarouselItem>
+                        <div className="h-full w-full flex items-center justify-center">
+                          <Image
+                            src="/images/scentbox-full-long-best.jpg"
+                            alt="The Scent Box"
+                            className="object-cover w-full h-full"
+                            width={450}
+                            height={600}
+                          />
+                        </div>
+                      </CarouselItem>
+                      <CarouselItem>
+                        <div className="h-full w-full flex items-center justify-center">
+                          <Image
+                            src="/images/scentbox-select-aftershave.jpg"
+                            alt="The Scent Box"
+                            className="object-cover w-full h-full"
+                            width={450}
+                            height={600}
+                          />
+                        </div>
+                      </CarouselItem>
+                      <CarouselItem>
+                        <div className="h-full w-full flex items-center justify-center">
+                          <Image
+                            src="/images/scentbox-full-long.jpg"
+                            alt="The Scent Box"
+                            className="object-cover w-full h-full"
+                            width={450}
+                            height={600}
+                          />
+                        </div>
+                      </CarouselItem>
+                    </CarouselContent>
+                  </Carousel>
                 </div>
               </div>
             </div>
@@ -475,7 +570,13 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center gap-6 md:flex-row md:justify-between">
             <div className="flex items-center gap-2 font-bold text-xl">
-              <Droplet className="h-5 w-5 text-primary" />
+              <Image
+                src="/images/scentbox-logo.png"
+                alt="The Scent Box"
+                className="h-5 w-5"
+                width={32}
+                height={32}
+              />
               <span>The Scent Box</span>
             </div>
             <div className="flex gap-4 justify-center">
