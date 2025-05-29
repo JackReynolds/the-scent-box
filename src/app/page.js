@@ -13,8 +13,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import {
   Droplet,
@@ -23,9 +21,11 @@ import {
   ChevronRight,
   Menu,
   X,
+  Quote,
   Tv,
   Facebook,
   Instagram,
+  QuoteIcon,
 } from "lucide-react";
 import { useState, useEffect } from "react";
 import { toast } from "sonner";
@@ -136,12 +136,12 @@ export default function Home() {
             {/* <Droplet className="h-6 w-6 text-primary" /> */}
             <Image
               src="/images/scentbox-logo.png"
-              alt="The Scent Box"
+              alt="The ScentBox"
               className="ml-3 md:ml-10"
               width={32}
               height={32}
             />
-            <span>The Scent Box</span>
+            <span>The ScentBox</span>
           </div>
 
           {/* Mobile Menu Button */}
@@ -231,7 +231,7 @@ export default function Home() {
                     Redefining Fragrance Experiences
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    The Scent Box brings premium aftershaves to your location.
+                    The ScentBox brings premium aftershaves to your location.
                     Select, pay, and spray with our innovative dispenser.
                   </p>
                 </div>
@@ -282,7 +282,7 @@ export default function Home() {
                         <div className="h-full w-full flex items-center justify-center">
                           <Image
                             src="/images/scentbox-full-long-best.jpg"
-                            alt="The Scent Box"
+                            alt="The ScentBox"
                             className="object-cover w-full h-full"
                             width={450}
                             height={600}
@@ -293,7 +293,7 @@ export default function Home() {
                         <div className="h-full w-full flex items-center justify-center">
                           <Image
                             src="/images/scentbox-select-aftershave.jpg"
-                            alt="The Scent Box"
+                            alt="The ScentBox"
                             className="object-cover w-full h-full"
                             width={450}
                             height={600}
@@ -304,7 +304,7 @@ export default function Home() {
                         <div className="h-full w-full flex items-center justify-center">
                           <Image
                             src="/images/scentbox-full-long.jpg"
-                            alt="The Scent Box"
+                            alt="The ScentBox"
                             className="object-cover w-full h-full"
                             width={450}
                             height={600}
@@ -377,57 +377,98 @@ export default function Home() {
                 </h2>
                 <p className="max-w-[700px] text-muted-foreground md:text-xl">
                   Hear from businesses and customers who have experienced The
-                  Scent Box
+                  ScentBox
                 </p>
               </div>
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-12 max-w-5xl mx-auto">
               <div className="flex flex-col p-6 bg-background rounded-lg shadow-sm h-full">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="h-12 w-12 rounded-full bg-secondary" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-primary/60"
+                  >
+                    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
+                    <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path>
+                  </svg>
                   <div>
-                    <h4 className="font-semibold">Sarah Thompson</h4>
-                    <p className="text-sm text-muted-foreground">
+                    <h4 className="font-semibold">Liz Howe</h4>
+                    {/* <p className="text-sm text-muted-foreground">
                       Luxury Hotel Manager
-                    </p>
+                    </p> */}
                   </div>
                 </div>
                 <p className="text-muted-foreground">
-                  &quot;The Scent Box has been a game-changer for our hotel
-                  lobby. Guests love the premium fragrance experience and it
-                  adds a unique touch to our services.&quot;
+                  &quot;Thank you so much for the amazing ScentBox at our
+                  engagement party — everyone loved it! The whole process was
+                  seamless. We&apos;ll definitely be recommending you and using
+                  you again!&quot;
                 </p>
               </div>
               <div className="flex flex-col p-6 bg-background rounded-lg shadow-sm h-full">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="h-12 w-12 rounded-full bg-secondary" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-primary/60"
+                  >
+                    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
+                    <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path>
+                  </svg>
                   <div>
-                    <h4 className="font-semibold">James Wilson</h4>
-                    <p className="text-sm text-muted-foreground">
-                      Regular Customer
-                    </p>
+                    <h4 className="font-semibold">Shona Brown</h4>
                   </div>
                 </div>
                 <p className="text-muted-foreground">
-                  &quot;I love being able to try different aftershaves without
-                  committing to buying a full bottle. The selection is fantastic
-                  and the process is so simple.&quot;
+                  &quot;The ScentBox was a huge hit at our beauty show. It added
+                  a memorable, interactive touch and drew lots of interest. The
+                  screen was great for attracting visitors. We&apos;ll
+                  definitely use it again!&quot;
                 </p>
               </div>
               <div className="flex flex-col p-6 bg-background rounded-lg shadow-sm h-full">
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="h-12 w-12 rounded-full bg-secondary" />
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="text-primary/60"
+                  >
+                    <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"></path>
+                    <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"></path>
+                  </svg>
                   <div>
-                    <h4 className="font-semibold">Emma Davis</h4>
-                    <p className="text-sm text-muted-foreground">
+                    <h4 className="font-semibold">Mahon Recovery</h4>
+                    {/* <p className="text-sm text-muted-foreground">
                       Nightclub Owner
-                    </p>
+                    </p> */}
                   </div>
                 </div>
                 <p className="text-muted-foreground">
-                  &quot;Our customers appreciate the additional service, and the
-                  advertising display has been a great revenue stream for
-                  partnerships with fragrance brands.&quot;
+                  &quot;Thanks for the ad spot on The ScentBox — we&apos;ve seen
+                  a big increase in calls and enquiries since it went live.
+                  Looking forward to continuing working with you!&quot;
                 </p>
               </div>
             </div>
@@ -501,7 +542,7 @@ export default function Home() {
               <Accordion type="single" collapsible className="w-full">
                 <AccordionItem value="item-1">
                   <AccordionTrigger className="text-base md:text-lg">
-                    How does the Scent Box work?
+                    How does the ScentBox work?
                   </AccordionTrigger>
                   <AccordionContent>
                     Yes. It adheres to the WAI-ARIA design pattern.
@@ -518,7 +559,7 @@ export default function Home() {
                 </AccordionItem>
                 <AccordionItem value="item-3">
                   <AccordionTrigger className="text-base md:text-lg">
-                    How do I get a Scent Box in my establishment?
+                    How do I get a ScentBox in my establishment?
                   </AccordionTrigger>
                   <AccordionContent>
                     Yes. It&apos;s animated by default, but you can disable it
@@ -537,10 +578,10 @@ export default function Home() {
               <div className="flex flex-col justify-center space-y-4">
                 <div className="space-y-2">
                   <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
-                    Get Your Own Scent Box
+                    Get Your Own ScentBox
                   </h2>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                    Interested in having a Scent Box in your establishment? Fill
+                    Interested in having a ScentBox in your establishment? Fill
                     out the form and we&apos;ll get back to you.
                   </p>
                 </div>
@@ -630,23 +671,33 @@ export default function Home() {
             <div className="flex items-center gap-2 font-bold text-xl">
               <Image
                 src="/images/scentbox-logo.png"
-                alt="The Scent Box"
+                alt="The ScentBox"
                 className="h-5 w-5"
                 width={32}
                 height={32}
               />
-              <span>The Scent Box</span>
+              <span>The ScentBox</span>
             </div>
             <div className="flex gap-4 justify-center">
-              <Button variant="ghost" size="icon" aria-label="Facebook">
+              {/* <Button variant="ghost" size="icon" aria-label="Facebook">
                 <Facebook className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon" aria-label="Instagram">
+              </Button> */}
+              <Button
+                variant="ghost"
+                size="icon"
+                aria-label="Instagram"
+                onClick={() =>
+                  window.open(
+                    "https://www.instagram.com/thescentbox.ie/",
+                    "_blank"
+                  )
+                }
+              >
                 <Instagram className="h-5 w-5" />
               </Button>
             </div>
             <p className="text-sm text-muted-foreground text-center md:text-right">
-              © {new Date().getFullYear()} The Scent Box. All rights reserved.
+              © {new Date().getFullYear()} The ScentBox. All rights reserved.
             </p>
           </div>
         </div>
