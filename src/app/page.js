@@ -486,38 +486,58 @@ export default function Home() {
               </div>
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-12 max-w-5xl mx-auto">
-              <div className="relative aspect-video overflow-hidden rounded-lg">
+              <div className="relative h-80 md:h-96 overflow-hidden rounded-lg">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <Image
+                  src="/images/campaign1.jpg"
+                  alt="Summer Collection"
+                  className="object-cover w-full h-full"
+                  width={450}
+                  height={600}
+                />
                 <div className="absolute inset-0 flex items-end p-6">
                   <div>
-                    <h3 className="text-xl font-bold text-white">
-                      Summer Collection
-                    </h3>
+                    <h3 className="text-xl font-bold text-white">Disney+</h3>
                     <p className="text-white/80">
-                      Featured luxury brand campaign
+                      Featured streaming service campaign.
                     </p>
                   </div>
                 </div>
               </div>
-              <div className="relative aspect-video overflow-hidden rounded-lg">
+              <div className="relative h-80 md:h-96 overflow-hidden rounded-lg">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <Image
+                  src="/images/campaign2.jpg"
+                  alt="Limited Edition"
+                  className="object-cover w-full h-full"
+                  width={450}
+                  height={600}
+                />
                 <div className="absolute inset-0 flex items-end p-6">
                   <div>
-                    <h3 className="text-xl font-bold text-white">
-                      Limited Edition
-                    </h3>
-                    <p className="text-white/80">Exclusive fragrance launch</p>
+                    <h3 className="text-xl font-bold text-white">Quit.ie</h3>
+                    <p className="text-white/80">
+                      Campaign providing assistance to smokers trying to quit.
+                    </p>
                   </div>
                 </div>
               </div>
-              <div className="relative aspect-video overflow-hidden rounded-lg">
+              <div className="relative h-80 md:h-96 overflow-hidden rounded-lg">
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                <Image
+                  src="/images/campaign3.jpg"
+                  alt="Holiday Special"
+                  className="object-cover w-full h-full"
+                  width={450}
+                  height={600}
+                />
                 <div className="absolute inset-0 flex items-end p-6">
                   <div>
-                    <h3 className="text-xl font-bold text-white">
-                      Holiday Special
-                    </h3>
-                    <p className="text-white/80">Seasonal promotion campaign</p>
+                    <h3 className="text-xl font-bold text-white">RSA</h3>
+                    <p className="text-white/80">
+                      Road safety authority campaign for slower speeds on rural
+                      roads.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -527,7 +547,7 @@ export default function Home() {
 
         {/* FAQ Section */}
         <section id="faq" className="bg-muted my-10 py-20 px-5 md:px-0">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
+          <div className="flex flex-col items-center justify-center space-y-4">
             <h2 className="text-3xl font-bold tracking-tighter md:text-4xl">
               FAQ
             </h2>
@@ -542,7 +562,20 @@ export default function Home() {
                     How does the ScentBox work?
                   </AccordionTrigger>
                   <AccordionContent>
-                    Yes. It adheres to the WAI-ARIA design pattern.
+                    The ScentBox is a pay-per-spray fragrance device that allows
+                    customers to select and enjoy their favorite fragrances in a
+                    unique and engaging way. The ScentBox also features a 43
+                    inch display screen that can be used to display brand
+                    advertising campaigns. The ScentBox can be installed for
+                    free in permanent locations, or rented for a daily rate. For
+                    more information, please contact us at{" "}
+                    <a
+                      href="mailto:info@thescentbox.ie"
+                      className="text-primary hover:underline"
+                    >
+                      info@thescentbox.ie
+                    </a>{" "}
+                    to discuss options suited to your needs.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-2">
@@ -550,8 +583,8 @@ export default function Home() {
                     How can I get in touch as an advertiser?
                   </AccordionTrigger>
                   <AccordionContent>
-                    Yes. It comes with default styles that matches the other
-                    components&apos; aesthetic.
+                    Please email our team at info@thescentbox.ie to discuss your
+                    advertising needs.
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-3">
@@ -559,8 +592,8 @@ export default function Home() {
                     How do I get a ScentBox in my establishment?
                   </AccordionTrigger>
                   <AccordionContent>
-                    Yes. It&apos;s animated by default, but you can disable it
-                    if you prefer.
+                    Please email our team at info@thescentbox.ie to discuss next
+                    steps.
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
